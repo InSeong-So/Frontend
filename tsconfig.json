@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    // 생성자 함수에서 정의되지 않은 프로퍼티의 타입 체크
+    "strictPropertyInitialization": true,
+    // tsc
+    "target": "esnext",
+    "module": "esnext",
+    // strict와 관련된 모든 속성이 true로 변경됨
+    "strict": true,
+    // @ts-check와 같은 효과를 내는 옵션은 checkJs
+    "allowJs": true,
+    // 컴파일된 파일 출력 경로
+    "outDir": "dist",
+    "importHelpers": true,
+    // 프로미스 베이스
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    // 타입이 정해져있지 않은 코드를 any라도 지정해야한다고 제한
+    "noImplicitAny": true,
+    "baseUrl": ".",
+    "types": ["node"],
+    "paths": {
+      "~/*": ["*"],
+      "@/*": ["src/packages/*"],
+      "@css/*":["assets/scss/*"]
+    },
+    "typeRoots": [
+      "src/types"
+    ]
+  },
+  "include": [
+    // 프로덕션 코드
+    "src/**/*.ts",
+    // 타입 정의 파일
+    "src/types/**/*.d.ts",
+    // 테스트 코드
+    "test/**/*.test.ts",
+    // 정적 리소스
+    "assets/scss/**/*.scss",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
