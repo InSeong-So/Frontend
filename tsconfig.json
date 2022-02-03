@@ -27,23 +27,27 @@
     // 타입이 정해져있지 않은 코드를 any라도 지정해야한다고 제한
     "noImplicitAny": true,
     "baseUrl": ".",
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "paths": {
-      "~/*": ["*"],
-      "@/*": ["src/packages/*"],
-      "@css/*":["assets/scss/*"]
+      "@/*": [
+        "packages/*"
+      ],
+      "@css/*": [
+        "assets/scss/*"
+      ]
     },
     "typeRoots": [
-      "src/types"
+      "packages/@types"
     ]
   },
   "include": [
     // 프로덕션 코드
-    "src/**/*.ts",
-    // 타입 정의 파일
-    "src/types/**/*.d.ts",
+    "**/*.ts",
+    "**/*.d.ts",
     // 테스트 코드
-    "test/**/*.test.ts",
+    "tests/**/*.test.ts",
     // 정적 리소스
     "assets/scss/**/*.scss",
   ],

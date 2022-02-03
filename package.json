@@ -37,7 +37,6 @@
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
     "html-webpack-plugin": "5.5.0",
-    "mini-css-extract-plugin": "2.4.5",
     "prettier": "2.4.1",
     "prettier-eslint": "13.0.0",
     "resolve-url-loader": "4.0.0",

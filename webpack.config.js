@@ -3,7 +3,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
@@ -12,13 +11,13 @@ module.exports = {
     hot: true,
     open: true,
     historyApiFallback: true,
+    watchFiles: ['src/**/*.ts', 'public/**/*'],
   },
   devtool: 'inline-source-map',
   target: ['es5', 'web'],
   entry: './src/index.ts',
   output: {
-    publicPath: '/',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public'),
     filename: '[chunkhash].js',
     clean: true,
   },
@@ -29,10 +28,9 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, './assets/html/index.html'),
-      favicon: './favicon.ico',
+      favicon: './assets/icon/favicon.ico',
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new MiniCssExtractPlugin({ filename: 'app.css' }),
   ],
   module: {
     rules: [
@@ -57,6 +55,8 @@ module.exports = {
           loader: 'ts-loader',
           options: {
             configFile: path.resolve(__dirname, './tsconfig.json'),
+            // skip typechecking for speed
+            transpileOnly: true,
           },
         },
         exclude: /node_modules/,
