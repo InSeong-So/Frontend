@@ -1,0 +1,17 @@
+@import './base/share.scss';
+
+@import './example/counter.scss';
+@import './example/login.scss';
+
+#root {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
