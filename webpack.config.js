@@ -29,15 +29,8 @@ module.exports = {
     plugins: [new TsconfigPathsPlugin({})],
     fallback: {
       fs: false,
-      tls: false,
-      net: false,
       path: false,
       os: false,
-      zlib: false,
-      http: false,
-      https: false,
-      stream: false,
-      crypto: false,
     },
   },
   plugins: [

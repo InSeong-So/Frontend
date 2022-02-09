@@ -34,9 +34,6 @@
       "@/*": [
         "packages/*"
       ],
-      "@css/*": [
-        "assets/scss/*"
-      ]
     },
     "typeRoots": [
       "packages/@types"

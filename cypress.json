@@ -1,9 +1,6 @@
 {
-  "integrationFolder": "test",
   "testFiles": "*.test.js",
   "screenshotOnRunFailure": false,
   "video": false,
-  "pluginsFile": false,
-  "supportFile": false,
   "blockHosts": ["cdn.jsdelivr.net"]
 }
