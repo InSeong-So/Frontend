@@ -1,14 +1,17 @@
-// 기본 예제
-import '@css/counter-app/index.scss';
-// 메인 scss 파일
-import '@css/index.scss';
-
+import '../assets/scss/index.scss';
+//
 import App from './App';
-import http from '@/client';
+import store from '@/store';
+import render from '@/helpers/dom/render';
 
-(document.querySelector('#root') as HTMLElement).innerHTML = App();
+const diffRenderer = () => {
+  const $root = document.body;
+  const $old = $root.firstChild as HTMLElement;
+  const $new = App(store);
 
-(async () => {
-  const response = await http.get('https://jsonplaceholder.typicode.com/posts/1');
-  console.log(response);
-})();
+  render($root, $old, $new);
+};
+
+store.subscribe({ render: diffRenderer });
+
+diffRenderer();

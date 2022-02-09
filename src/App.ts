@@ -1,18 +1,15 @@
-const App = () => {
-  const render = () => {
-    return `
-    <div id="counter-app">
-      <p id="counter-display">0</p>
-      <div id="counter-buttons">
-        <button id="increment-button" class="button"><i class="fa fa-plus"></i></button>
-        <button id="decrement-button" class="button"><i class="fa fa-minus"></i></button>
-        <button id="reset-button" class="button"><i class="fa fa-refresh"></i></button>
-      </div>
-    </div>
-      `;
-  };
+import { Store } from 'store';
+import { setupComponent } from '@/helpers/dom/converter';
+import { createVDOM } from '@/helpers/dom/converter';
+import CounterComponent from './components/Counter';
 
-  return render();
+const App = (store: Store) => {
+  return createVDOM({
+    type: 'Element',
+    tagName: 'div',
+    attributes: { id: 'root' },
+    children: setupComponent<Store>(store, [CounterComponent]),
+  });
 };
 
 export default App;
