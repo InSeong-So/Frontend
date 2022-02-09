@@ -31,9 +31,7 @@ const CounterComponent = (store: Store) => {
       id = $closest(target, 'button').id;
     } else return;
 
-    store.dispatch({
-      type: handleCase[id],
-    });
+    store.dispatch({ type: handleCase[id] });
   };
   return {
     component: CounterTemplate({ count: store.getState().counter.count }),
