@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Frontend for ${PROJECT}",
   "scripts": {
-    "start": "webpack-dev-server",
+    "dev": "webpack-dev-server",
     "build": "webpack",
     "watch": "webpack -w",
     "test": "cypress run --browser chrome"
@@ -33,6 +33,7 @@
     "@typescript-eslint/parser": "5.3.1",
     "css-loader": "6.5.1",
     "cypress": "9.2.0",
+    "dotenv": "^16.0.0",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
