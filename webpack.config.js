@@ -4,6 +4,9 @@ const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
+const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 module.exports = {
   mode: 'development',
   devServer: {
@@ -24,6 +27,18 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     plugins: [new TsconfigPathsPlugin({})],
+    fallback: {
+      fs: false,
+      tls: false,
+      net: false,
+      path: false,
+      os: false,
+      zlib: false,
+      http: false,
+      https: false,
+      stream: false,
+      crypto: false,
+    },
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -31,6 +46,10 @@ module.exports = {
       favicon: './assets/icon/favicon.ico',
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(dotenv.parsed),
+      'process.env.NODE_ENV': JSON.stringify(isDevelopment ? 'development' : 'production'),
+    }),
   ],
   module: {
     rules: [
